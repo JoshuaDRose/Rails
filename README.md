@@ -6,5 +6,11 @@
 
 <h2>Formatting</h2>
 The code formatting that can be found within this test package is, in addition to the references in the documentation strings,
-consistent with pep8 style guides and is linted with flake8, both of which are up to date style guides. Additionally,
-this repository <i>loosely</i> follows (community commit guidelines)[https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53] for reasons of consistency and multilateral styling.
+consistent with <a href="https://peps.python.org/pep-0008/">pep8</a> style guides and is linted with <a href="https://github.com/PyCQA/flake8#readme">
+flake8</a>, both of which are up to date style guides.<br>
+Additionally, this repository follows <a href="https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53">
+github community guidlines</a> for reasons of consistency and multilateral styling<sup>*</sup>.<br>
+<br>
+
+<sup>*</sup><i> Although this might be the case, discrepancies may occur from time to time, as commit messages, pull requests and 
+issue titles are not moderated or linted for formatting errors.</i>
