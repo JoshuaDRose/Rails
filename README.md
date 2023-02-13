@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>Unit Testing</h1>
+    <h1>Rails</h1>
     <p><i>"Testing your code requires change to how you write it."</i></p>
     <p> - Chris Hartjes </p>
 </div>
