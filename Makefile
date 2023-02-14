@@ -1,23 +1,3 @@
-# Makefile for python code
-# 
-# > make help
-#
-# The following commands can be used.
-#
-# init:  sets up environment and installs requirements
-# install:  Installs development requirments
-# format:  Formats the code with autopep8
-# lint:  Runs flake8 on src, exit if critical rules are broken
-# clean:  Remove build and cache files
-# env:  Source venv and environment files for testing
-# leave:  Cleanup and deactivate venv
-# test:  Run pytest
-# run:  Executes the logic
-
-define find.functions
-@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
-endef
-
 help:
 	@echo 'init    - Install dependencies from requirements.txt'
 	@echo 'install - download and setup pypy package manager and linters'
@@ -25,7 +5,6 @@ help:
 	@echo 'clean   - remove pycache and build build/dist files'
 	@echo 'test    - use unittest and coverage.py to generate test report from tests folder'
 	$(call find.functions)
-
 
 init:
 	python3.9 -m pip install -r requirements.txt
@@ -36,9 +15,7 @@ install:
 	python3.9 -m pip install flake8
 
 lint:
-	# stop the build if there are Python syntax errors or undefined names
 	python3.9 -m flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
-	# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
 	python3.9 -m flake8 src --count --exit-zero --statistics
 
 clean:
@@ -46,7 +23,6 @@ clean:
 	rm -rf build
 	rm -rf dist
 	rm -rf .pytest_cache
-	# Remove pycache
 	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
 test:
