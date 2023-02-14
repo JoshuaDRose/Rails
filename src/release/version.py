@@ -29,7 +29,7 @@ class Version:
             https://peps.python.org/pep-0008/#public-and-internal-interfaces
         """
         
-        self._default = default
+        self._default: str = default
 
     @staticmethod
     def trisect(version: str) -> list:
@@ -42,7 +42,7 @@ class Version:
         return _version
 
     @property
-    def default(self):
+    def default(self) -> str:
         """ Retrieve default version specified in constructor.
 
             Note:

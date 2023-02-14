@@ -11,8 +11,8 @@ from src.release import Version
 class TestVersion(unittest.TestCase):
     version = Version()
 
-    def test_type_default(self):
-        """ Test default is type of string """
+    def test_return_type_default(self):
+        """ Test return type of property is type of string """
         self.assertIsInstance(TestVersion.version.default, str)
 
     def test_default_pointers(self):
