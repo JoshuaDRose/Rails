@@ -8,7 +8,7 @@ setuptools.setup(
 
     name="Joshua Rose", # Replace with your username
 
-    version="1.0.0",
+    version="0.1.0-prealpha",
 
     author="Joshua Rose",
 
