@@ -25,7 +25,7 @@ clean:
 	rm -rf build
 	rm -rf dist
 	rm -rf .pytest_cache
-	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+	find . | grep -E "__pycache__" | xargs rm -rf
 
 test:
 	$(VERSION) -m coverage run -m unittest tests/*.py
