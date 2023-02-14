@@ -11,6 +11,10 @@ from src.release import Version
 class TestVersion(unittest.TestCase):
     version = Version()
 
+    def test_type_default(self):
+        """ Test default is type of string """
+        self.assertIsInstance(TestVersion.version.default, str)
+
     def test_default_pointers(self):
         """ Test default can handle version string """
         self.assertGreaterEqual(TestVersion.version.default.count('.'), 2)
