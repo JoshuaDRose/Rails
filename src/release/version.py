@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+"""
+Modified on: 2023-02-14 11:58
+
+@author: Joshua
+"""
+
+
 class Version:
     """ Applies versioning rules to a given instance or string
 
