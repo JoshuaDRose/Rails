@@ -16,7 +16,7 @@ class Version:
     the following formatting conditions:
 
     Each version has a syntax which is applied as follows: x.y.z, see
-    default keyword below. Eg major.minor.patch
+    default keyword below. eg: major.minor.patch
     """
 
     def __init__(self, default: str ="0.1.0"):
@@ -30,3 +30,22 @@ class Version:
         """
         
         self._default = default
+
+    @staticmethod
+    def trisect(version: str) -> list:
+        """ Return mutable components of speficied version
+
+        Args:
+            version (str): version number seperated by dots to indicate components
+        """
+        _version = version.split('.')
+        return _version
+
+    @property
+    def default(self):
+        """ Retrieve default version specified in constructor.
+
+            Note:
+                also used for class TestVersion(unit.TestCase)
+        """
+        return self._default
