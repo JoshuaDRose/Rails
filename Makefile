@@ -14,18 +14,16 @@
 # test:  Run pytest
 # run:  Executes the logic
 
-VENV_PATH='env/bin/activate'
-ENVIRONMENT_VARIABLE_FILE='.env'
-DOCKER_NAME=$DOCKER_NAME
-DOCKER_TAG=$DOCKER_TAG
-
 define find.functions
 @fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
 endef
 
 help:
-	@echo 'The following commands can be used.'
-	@echo ''
+	@echo 'init    - Install dependencies from requirements.txt'
+	@echo 'install - download and setup pypy package manager and linters'
+	@echo 'lint    - process source code for syntax errors or linting issues'
+	@echo 'clean   - remove pycache and build build/dist files'
+	@echo 'test    - use unittest and coverage.py to generate test report from tests folder'
 	$(call find.functions)
 
 
@@ -43,15 +41,6 @@ lint:
 	# exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
 	python3.9 -m flake8 src --count --exit-zero --statistics
 
-package: clean
-	python3 setup/setup.py sdist bdist_wheel
-
-upload-test: package
-	python3 -m twine upload --repository-url https://test.pypi.org/legacy/ dist/* --non-interactive --verbose
-
-upload: package
-	python3 -m twine upload dist/* --non-interactive
-
 clean:
 	rm -rf *.egg-info
 	rm -rf build
@@ -60,29 +49,5 @@ clean:
 	# Remove pycache
 	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
-env:
-	python3.9 -m venv env
-	source $(VENV_PATH)
-	source $(ENVIRONMENT_VARIABLE_FILE)
-
-leave: ## Cleanup and deactivate venv
-leave: clean
-	deactivate
-
 test:
 	python3.9 -m coverage run -m unittest tests/*.py
-
-build:
-	docker build -t $(DOCKER_NAME):$(DOCKER_TAG) -f docker/Dockerfile .
-
-create: build
-	docker create -it --name $(DOCKER_NAME) $(DOCKER_NAME):$(DOCKER_TAG)
-
-start: build
-	docker start $(DOCKER_NAME)
-
-run: start
-	docker run -it $(DOCKER_NAME):$(DOCKER_TAG)
-
-exec: start
-	docker exec -it $(DOCKER_NAME) python
