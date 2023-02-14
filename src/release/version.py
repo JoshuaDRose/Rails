@@ -9,7 +9,7 @@ Modified on: 2023-02-14 11:58
 class Version:
     """ Applies versioning rules to a given instance or string
 
-    If a string is formatted in the proper version, it can also be 
+    If a string is formatted in the proper version, it can also be
     used without creating an instance of Version.
     The version class is responsible for regulating these
     changes and incrementing individual versions as set by
@@ -19,7 +19,7 @@ class Version:
     default keyword below. eg: major.minor.patch
     """
 
-    def __init__(self, default: str ="0.1.0"):
+    def __init__(self, default: str = "0.1.0"):
         """Constructor may be called optionally through class dunder methods.
 
         Args:
