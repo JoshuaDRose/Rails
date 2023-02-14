@@ -7,6 +7,10 @@
     <p> - Chris Hartjes </p>
 </div>
 
+<a href='https://coveralls.io/github/JoshuaDRose/Rails?branch=main'>
+    <img src='https://coveralls.io/repos/github/JoshuaDRose/Rails/badge.svg?branch=main' alt='Coverage Status' />
+</a>
+
 <h2>Formatting</h2>
 The code formatting that can be found within this test package is, in addition to the references in the documentation strings,
 consistent with <a href="https://peps.python.org/pep-0008/">pep8</a> style guides and is linted with <a href="https://github.com/PyCQA/flake8#readme">
