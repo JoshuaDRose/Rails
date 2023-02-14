@@ -4,7 +4,7 @@ import sys
 """
 Allows for path mutability when testing. Modules can be then imported as follows:
 
->>> import src                 
+>>> import src
 >>> from src import my_module
 """
 
