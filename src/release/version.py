@@ -38,7 +38,7 @@ class Version:
         Args:
             version (str): version number seperated by dots to indicate components
         """
-        _version = version.split('.')
+        _version: int = version.split('.')
         return _version
 
     @property

@@ -13,7 +13,7 @@ class TestVersion(unittest.TestCase):
 
     def test_default_pointers(self):
         """ Test default can handle version string """
-        self.assertGreaterEqual(TestVersion.version.count('.'), 2)
+        self.assertGreaterEqual(TestVersion.version.default.count('.'), 2)
 
     def test_default_abs(self):
         """ Test version keyword argument's within bounds """
