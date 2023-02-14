@@ -1,25 +1,17 @@
-name: flake
+name: flake8
 
-on:
-  push:
-  pull_request:
-    branches: [0.1.0]
+on: [push, pull_request]
 
 jobs:
-  build:
-    name: Setup runner
-    # Set the agent to run on
+  flake8-lint:
     runs-on: ubuntu-latest
-
+    name: Lint
     steps:
-      - name: Checkout Code
+      - name: Check out source repository
         uses: actions/checkout@v3
+      - name: Set up Python environment
+        uses: actions/setup-python@v4
         with:
-          fetch-depth: 0
-
-      - name: Lint code
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          python-version: "3.11"
+      - name: flake8 Lint
+        uses: py-actions/flake8@v2
