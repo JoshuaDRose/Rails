@@ -28,7 +28,7 @@ class Version:
         Links:
             https://peps.python.org/pep-0008/#public-and-internal-interfaces
         """
-        
+
         self._default: str = default
 
     @staticmethod
