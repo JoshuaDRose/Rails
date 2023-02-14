@@ -1,5 +1,6 @@
 import os
 import sys
+from .version_test import TestVersion
 
 """
 Allows for path mutability when testing. modules can be then imported as follows:
@@ -10,4 +11,5 @@ Allows for path mutability when testing. modules can be then imported as follows
 
 global_path_index: int = 0  # declare path index to insert global path
 sys.path.insert(global_path_index, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 
