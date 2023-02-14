@@ -1,5 +1,8 @@
+<!DOCTYPE html>
+<html>
+<body>
 <div align="center">
-    <h1>Unit Testing</h1>
+    <h1>Rails</h1>
     <p><i>"Testing your code requires change to how you write it."</i></p>
     <p> - Chris Hartjes </p>
 </div>
@@ -14,3 +17,5 @@ github community guidlines</a> for reasons of consistency and multilateral styli
 
 <sup>*</sup><i> Although this might be the case, discrepancies may occur from time to time, as commit messages, pull requests and 
 issue titles are not moderated or linted for formatting errors.</i>
+</body>
+</html>
