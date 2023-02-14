@@ -1,3 +1,5 @@
+VERSION := python3.9
+
 help:
 	@echo 'init    - Install dependencies from requirements.txt'
 	@echo 'install - download and setup pypy package manager and linters'
@@ -7,16 +9,16 @@ help:
 	$(call find.functions)
 
 init:
-	python3.9 -m pip install -r requirements.txt
+	${filename} -m pip install -r requirements.txt
 
 install:
-	python3.9 -m pip install --upgrade pip
-	python3.9 -m pip install setuptools wheel twine
-	python3.9 -m pip install flake8
+	${filename} -m pip install --upgrade pip
+	${filename} -m pip install setuptools wheel twine
+	${filename} -m pip install flake8
 
 lint:
-	python3.9 -m flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
-	python3.9 -m flake8 src --count --exit-zero --statistics
+	${filename} -m flake8 src --count --select=E9,F63,F7,F82 --show-source --statistics
+	${filename} -m flake8 src --count --exit-zero --statistics
 
 clean:
 	rm -rf *.egg-info
@@ -26,4 +28,7 @@ clean:
 	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 
 test:
-	python3.9 -m coverage run -m unittest tests/*.py
+	${filename} -m coverage run -m unittest tests/*.py
+
+tox:
+	${filename} -m tox
