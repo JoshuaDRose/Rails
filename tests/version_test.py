@@ -23,5 +23,6 @@ class TestVersion(unittest.TestCase):
         """ Test version keyword argument's within bounds """
         self.assertTrue(all([True if n else False for n in Version.trisect(TestVersion.version.default)]))
 
+
 if __name__ == "__main__":
     unittest.main()
